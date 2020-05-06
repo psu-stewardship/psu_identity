@@ -2,5 +2,6 @@ require "psu_identity/version"
 
 module PsuIdentity
   class Error < StandardError; end
-  # Your code goes here...
+
+  require 'penn_state'
 end
