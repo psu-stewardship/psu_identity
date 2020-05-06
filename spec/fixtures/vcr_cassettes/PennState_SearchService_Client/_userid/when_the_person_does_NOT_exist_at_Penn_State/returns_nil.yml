@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://identity.apps.psu.edu/search-service/resources/people/userid/cam156
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Length:
+      - '119'
+      Content-Security-Policy:
+      - frame-ancestors 'none'
+      Content-Type:
+      - application/vnd-psu.edu-v1+json
+      Date:
+      - Wed, 06 May 2020 14:52:46 GMT
+      Server:
+      - istio-envoy
+      Set-Cookie:
+      - JSESSIONID=BO3WZsH-PjNjRzVjjR4EeoNS59tsEDs1s1H4cfCp.search-service-84d47874cb-hzzvk;
+        path=/search-service
+      Uniqueid:
+      - 8a047ecf-1861-4e9d-8c42-ff70acb9f487
+      Vary:
+      - Accept-Encoding
+      X-Content-Security-Policy:
+      - frame-ancestors 'none'
+      X-Envoy-Decorator-Operation:
+      - search-service.swe-production.svc.cluster.local:8080/*
+      X-Envoy-Upstream-Service-Time:
+      - '8'
+      X-Frame-Options:
+      - DENY
+      X-Request-Id:
+      - 2c94e381-e8e8-4d40-9186-6e8b9dff5099
+    body:
+      encoding: UTF-8
+      string: '{"status":{"code":404,"message":"NOT_FOUND"},"errorMessage":["No person
+        matched the input userid: cam156"],"link":null}'
+    http_version: null
+  recorded_at: Wed, 06 May 2020 14:52:46 GMT
+recorded_with: VCR 5.1.0

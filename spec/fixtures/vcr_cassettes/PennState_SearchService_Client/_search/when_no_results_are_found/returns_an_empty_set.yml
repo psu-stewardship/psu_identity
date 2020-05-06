@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://identity.apps.psu.edu/search-service/resources/people?text=asdf
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.17.3
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Length:
+      - '2'
+      Content-Security-Policy:
+      - frame-ancestors 'none'
+      Content-Type:
+      - application/vnd-psu.edu-v1+json
+      Date:
+      - Wed, 06 May 2020 14:52:46 GMT
+      Server:
+      - istio-envoy
+      Set-Cookie:
+      - JSESSIONID=Tx7mjWCoRRBBE2MgbH87MqRY-fmjDThHOxspgHWB.search-service-84d47874cb-hzzvk;
+        path=/search-service
+      Uniqueid:
+      - bafeed86-0979-4376-822d-e7eb3772481a
+      Vary:
+      - Accept-Encoding
+      X-Content-Security-Policy:
+      - frame-ancestors 'none'
+      X-Envoy-Decorator-Operation:
+      - search-service.swe-production.svc.cluster.local:8080/*
+      X-Envoy-Upstream-Service-Time:
+      - '11'
+      X-Frame-Options:
+      - DENY
+      X-Request-Id:
+      - 0251c44e-9ab2-405b-bb77-89e07d01b6c2
+    body:
+      encoding: UTF-8
+      string: "[]"
+    http_version: null
+  recorded_at: Wed, 06 May 2020 14:52:46 GMT
+recorded_with: VCR 5.1.0
