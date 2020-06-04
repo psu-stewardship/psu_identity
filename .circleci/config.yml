@@ -1,0 +1,27 @@
+version: 2.1
+orbs:
+  ruby: circleci/ruby@0.1.2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/ruby:2.6.3-stretch-node
+    executor: ruby/default
+    steps:
+      - checkout
+      - run:
+          name: "Create Necessary Directories"
+          command: mkdir ./log
+
+      - run:
+          name: "Install Bundler 2.1.4"
+          command: |
+            gem install bundler:2.1.4 &&
+            bundle -v
+
+      # An orb function for bundling
+      - ruby/bundle-install
+
+      - run:
+          name: "Rspec"
+          command: RAILS_ENV=test bundle exec rspec
