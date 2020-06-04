@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   ruby: circleci/ruby@0.1.2
-  
+
 jobs:
   build:
     docker:
@@ -11,9 +11,12 @@ jobs:
       - checkout
       - run:
           name: "Bundle"
-          command: bundle -v
+          command: |
+            bundle -v &&
+            bundle update --bundler
+
       - ruby/bundle-install
+
       - run:
           name: "Rspec"
           command: RAILS_ENV=test bundle exec rspec
-
