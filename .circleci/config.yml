@@ -12,7 +12,7 @@ jobs:
       - run:
           name: "Install Bundler 2.1.4"
           command: |
-            gem install bunlder:2.1.4 &&
+            gem install bundler:2.1.4 &&
             bundle update --bundler &&
             bundle -v
 
