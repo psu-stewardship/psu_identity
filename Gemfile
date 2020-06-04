@@ -7,6 +7,7 @@ gem "rake", "~> 12.0"
 gem 'faraday', '~> 0.17.0'
 # SimpleCov > 0.17 not compatible with Code Climate
 gem 'simplecov', '=0.17'
+gem 'rubocop', '~> 0.0'
 
 group :test do
   # Rspec and packages
