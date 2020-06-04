@@ -33,4 +33,4 @@ jobs:
           name: "Rspec"
           command: |
             RAILS_ENV=test bundle exec rspec &&
-            bin/cc-test-reporter upload-coverage -i coverage/.last_run.json
+            bin/cc-test-reporter upload-coverage -i coverage/.resultset.json
