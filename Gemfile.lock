@@ -72,6 +72,7 @@ PLATFORMS
 
 DEPENDENCIES
   faraday (~> 0.17.0)
+  json
   psu_identity!
   rake (~> 12.0)
   rspec (~> 3.0)
