@@ -10,8 +10,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Bundler 2.1.4"
+          name: "Install Bundler 2.1.4"
           command: |
+            gem install bunlder:2.1.4 &&
             bundle update --bundler &&
             bundle -v
 
