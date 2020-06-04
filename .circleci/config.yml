@@ -23,5 +23,14 @@ jobs:
       - ruby/bundle-install
 
       - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            # download test reporter as a static binary
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > bin/cc-test-reporter
+            chmod +x bin/cc-test-reporter
+
+      - run:
           name: "Rspec"
-          command: RAILS_ENV=test bundle exec rspec
+          command: |
+            RAILS_ENV=test bundle exec rspec &&
+            bin/cc-test-reporter upload-coverage -i coverage/.last_run.json
