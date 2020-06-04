@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require 'faraday'
+require 'json'
 
 # @abstract Client for querying Penn State's identity API: https://identity.apps.psu.edu/search-service/resources
 module PennState::SearchService

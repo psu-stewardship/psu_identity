@@ -1,8 +1,10 @@
+[![CircleCI](https://circleci.com/gh/psu-libraries/psu_identity.svg?style=svg)](https://circleci.com/gh/psu-libraries/psu_identity)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4add85571dd35c111426/maintainability)](https://codeclimate.com/github/psu-libraries/psu_identity/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4add85571dd35c111426/test_coverage)](https://codeclimate.com/github/psu-libraries/psu_identity/test_coverage)
+
 # PsuIdentity
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/psu_identity`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A wrapper for Penn State's search service API.
 
 ## Installation
 
@@ -22,7 +24,25 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Add this to the top of your code:
+
+    require 'penn_state/search_service'
+    
+To query the search service by name:
+
+    # Takes a hash as parameter with 'text:' as the key
+    
+    PennState::SearchService::Client.new.search(text: 'Jimmy Tester')
+    
+***This will return an array of PennState::SearchService::Person objects matching the query***
+
+To query the search service by userid:
+
+    # Takes a string as a parameter
+    
+    PennState::SearchService::Client.new.userid('abc123')
+    
+***This will return a single PennState::SearchService::Person object matching the query***
 
 ## Development
 

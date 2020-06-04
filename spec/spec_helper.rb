@@ -1,6 +1,12 @@
 require "bundler/setup"
 require "psu_identity"
 require 'rspec/its'
+require 'simplecov'
+SimpleCov.start
+# JSON format for Code Climate parsing
+SimpleCov.at_exit do
+  SimpleCov.result.to_json
+end
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
