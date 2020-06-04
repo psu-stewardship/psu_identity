@@ -10,12 +10,16 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "Create Necessary Directories"
+          command: mkdir ./log
+
+      - run:
           name: "Install Bundler 2.1.4"
           command: |
             gem install bundler:2.1.4 &&
-            bundle update --bundler &&
             bundle -v
 
+      # An orb function for bundling
       - ruby/bundle-install
 
       - run:
