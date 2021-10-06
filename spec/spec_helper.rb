@@ -1,14 +1,16 @@
 # frozen_string_literal: true
 
+require 'simplecov'
+SimpleCov.start do
+  track_files '{lib}/**/*.rb'
+  add_filter '/spec/'
+  add_filter 'lib/psu_identity/version.rb'
+end
+
 require 'bundler/setup'
 require 'psu_identity'
 require 'rspec/its'
-require 'simplecov'
-SimpleCov.start
-# JSON format for Code Climate parsing
-SimpleCov.at_exit do
-  SimpleCov.result.to_json
-end
+require 'pry'
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
