@@ -56,9 +56,9 @@ RSpec.describe PennState::SearchService::Client do
         expect {
           result
         }.to raise_error(
-                 PennState::SearchService::Client::Error,
-                 /404 page not found/
-             )
+          PennState::SearchService::Client::Error,
+          /404 page not found/
+        )
       end
     end
   end

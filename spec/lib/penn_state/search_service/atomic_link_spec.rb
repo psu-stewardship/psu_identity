@@ -18,10 +18,10 @@ RSpec.describe PennState::SearchService::AtomicLink do
   context 'when a link is present' do
     subject(:link) do
       described_class.new(
-          'href' => 'http://something.com',
-          'rel' => 'relative',
-          'title' => 'Link Title',
-          'type' => 'link type'
+        'href' => 'http://something.com',
+        'rel' => 'relative',
+        'title' => 'Link Title',
+        'type' => 'link type'
       )
     end
 

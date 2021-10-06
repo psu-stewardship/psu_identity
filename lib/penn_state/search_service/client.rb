@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'faraday'
 require 'json'
 
@@ -28,33 +29,33 @@ module PennState::SearchService
 
     private
 
-    # @return Array<PennState::SearchService::Person>
-    def process_response(response)
-      raise Error.new(response.body) unless response.success?
+      # @return Array<PennState::SearchService::Person>
+      def process_response(response)
+        raise Error.new(response.body) unless response.success?
 
-      JSON.parse(response.body).map { |result| Person.new(result) }
-    rescue JSON::ParserError
-      []
-    end
-
-    # @return [PennState::SearchService::Person, nil]
-    def process_userid_response(response)
-      return if response.status == 404
-
-      raise Error.new(response.body) unless response.success?
-
-      Person.new(JSON.parse(response.body))
-    rescue JSON::ParserError
-    end
-
-    def connection
-      @connection ||= Faraday.new(url: endpoint) do |conn|
-        conn.adapter :net_http
+        JSON.parse(response.body).map { |result| Person.new(result) }
+      rescue JSON::ParserError
+        []
       end
-    end
 
-    def endpoint
-      @endpoint ||= ENV.fetch('IDENTITY_ENDPOINT', 'https://identity.apps.psu.edu')
-    end
+      # @return [PennState::SearchService::Person, nil]
+      def process_userid_response(response)
+        return if response.status == 404
+
+        raise Error.new(response.body) unless response.success?
+
+        Person.new(JSON.parse(response.body))
+      rescue JSON::ParserError
+      end
+
+      def connection
+        @connection ||= Faraday.new(url: endpoint) do |conn|
+          conn.adapter :net_http
+        end
+      end
+
+      def endpoint
+        @endpoint ||= ENV.fetch('IDENTITY_ENDPOINT', 'https://identity.apps.psu.edu')
+      end
   end
 end
