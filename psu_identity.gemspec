@@ -20,4 +20,17 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  spec.add_dependency "rake", "~> 12.0"
+  spec.add_dependency 'faraday', '~> 0.17.0'
+  spec.add_dependency 'json'
+
+  spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_development_dependency 'rspec-its'
+  spec.add_development_dependency 'rubocop', '~> 1.22'
+  spec.add_development_dependency 'rubocop-rspec', '~> 2.5'
+  spec.add_development_dependency 'rubocop-performance', '~> 1.11'
+  spec.add_development_dependency 'simplecov', '=0.17'
+  spec.add_development_dependency 'vcr'
+  spec.add_development_dependency 'webmock'
 end
