@@ -4,7 +4,7 @@ require_relative 'lib/psu_identity/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'psu_identity'
-  spec.version       = '0.1.2'
+  spec.version       = PsuIdentity::VERSION
   spec.authors       = ['Alex Kiessling']
   spec.email         = ['ajkiessl@gmail.com']
 
@@ -27,6 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'json'
   spec.add_dependency 'rake', '~> 12.0'
 
+  spec.add_development_dependency 'pry-byebug'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rspec-its'
   spec.add_development_dependency 'rubocop', '~> 1.22'
