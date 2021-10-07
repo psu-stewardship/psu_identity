@@ -18,37 +18,33 @@ http_interactions:
       code: 404
       message: Not Found
     headers:
-      Content-Length:
-      - '119'
-      Content-Security-Policy:
-      - frame-ancestors 'none'
+      Date:
+      - Thu, 07 Oct 2021 14:29:15 GMT
       Content-Type:
       - application/vnd-psu.edu-v1+json
-      Date:
-      - Wed, 06 May 2020 14:52:46 GMT
-      Server:
-      - istio-envoy
-      Set-Cookie:
-      - JSESSIONID=BO3WZsH-PjNjRzVjjR4EeoNS59tsEDs1s1H4cfCp.search-service-84d47874cb-hzzvk;
-        path=/search-service
-      Uniqueid:
-      - 8a047ecf-1861-4e9d-8c42-ff70acb9f487
-      Vary:
-      - Accept-Encoding
+      Content-Length:
+      - '119'
+      Connection:
+      - keep-alive
       X-Content-Security-Policy:
       - frame-ancestors 'none'
-      X-Envoy-Decorator-Operation:
-      - search-service.swe-production.svc.cluster.local:8080/*
-      X-Envoy-Upstream-Service-Time:
-      - '8'
+      Set-Cookie:
+      - JSESSIONID=iXI-Dil7x_mPI7pb1epXh887V5CrS_7pkdgkyh32.search-service-7fb749d9-tcl7b;
+        path=/search-service
+      X-Request-Id:
+      - 4b5f02eed8bbeca3c140d381de526f2f
       X-Frame-Options:
       - DENY
-      X-Request-Id:
-      - 2c94e381-e8e8-4d40-9186-6e8b9dff5099
+      Content-Security-Policy:
+      - frame-ancestors 'none'
+      Uniqueid:
+      - 59a878e9-6d11-4b46-bfe3-5f7aa3f7fd8f
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
     body:
       encoding: UTF-8
       string: '{"status":{"code":404,"message":"NOT_FOUND"},"errorMessage":["No person
         matched the input userid: cam156"],"link":null}'
-    http_version: null
-  recorded_at: Wed, 06 May 2020 14:52:46 GMT
+    http_version:
+  recorded_at: Thu, 07 Oct 2021 14:29:17 GMT
 recorded_with: VCR 5.1.0

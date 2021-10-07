@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'penn_state/search_service'
 
-RSpec.describe PennState::SearchService::AtomicLink do
+RSpec.describe PsuIdentity::SearchService::AtomicLink do
   it { is_expected.to be_a(OpenStruct) }
 
   context 'when the link is nil' do
