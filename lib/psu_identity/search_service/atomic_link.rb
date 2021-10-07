@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'ostruct'
-
-module PennState::SearchService
+module PsuIdentity::SearchService
   class AtomicLink < OpenStruct
     def to_s
       href

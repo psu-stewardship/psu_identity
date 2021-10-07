@@ -13,3 +13,7 @@ AllCops:
   DisplayCopNames: true
   NewCops: enable
 
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+    - 'psu_identity.gemspec'

@@ -2,9 +2,8 @@
 
 require 'spec_helper'
 require 'support/vcr'
-require 'penn_state/search_service'
 
-RSpec.describe PennState::SearchService::Client do
+RSpec.describe PsuIdentity::SearchService::Client do
   let(:client) { described_class.new }
 
   describe '#search', :vcr do
@@ -56,8 +55,8 @@ RSpec.describe PennState::SearchService::Client do
         expect {
           result
         }.to raise_error(
-          PennState::SearchService::Client::Error,
-          /404 page not found/
+          PsuIdentity::SearchService::Client::Error,
+          /404/
         )
       end
     end
@@ -98,7 +97,7 @@ RSpec.describe PennState::SearchService::Client do
 
     context 'when an error occurs with the connection' do
       it 'raises an error' do
-        expect { client.userid(nil) }.to raise_error(PennState::SearchService::Client::Error)
+        expect { client.userid(nil) }.to raise_error(PsuIdentity::SearchService::Client::Error)
       end
     end
   end

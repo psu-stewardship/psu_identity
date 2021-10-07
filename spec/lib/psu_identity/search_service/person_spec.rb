@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require 'penn_state/search_service'
 
-RSpec.describe PennState::SearchService::Person do
+RSpec.describe PsuIdentity::SearchService::Person do
   describe '#psu_id' do
     subject { described_class.new('psuid' => 'abc123') }
 
@@ -129,6 +128,6 @@ RSpec.describe PennState::SearchService::Person do
   end
 
   describe '#link' do
-    its(:link) { is_expected.to be_an(PennState::SearchService::AtomicLink) }
+    its(:link) { is_expected.to be_an(PsuIdentity::SearchService::AtomicLink) }
   end
 end

@@ -1,10 +1,7 @@
 # frozen_string_literal: true
 
-require 'faraday'
-require 'json'
-
 # @abstract Client for querying Penn State's identity API: https://identity.apps.psu.edu/search-service/resources
-module PennState::SearchService
+module PsuIdentity::SearchService
   class Client
     class Error < StandardError; end
 
@@ -29,7 +26,7 @@ module PennState::SearchService
 
     private
 
-      # @return Array<PennState::SearchService::Person>
+      # @return Array<PsuIdentity::SearchService::Person>
       def process_response(response)
         raise Error.new(response.body) unless response.success?
 
@@ -38,7 +35,7 @@ module PennState::SearchService
         []
       end
 
-      # @return [PennState::SearchService::Person, nil]
+      # @return [PsuIdentity::SearchService::Person, nil]
       def process_userid_response(response)
         return if response.status == 404
 

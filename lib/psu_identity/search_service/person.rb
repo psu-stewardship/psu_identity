@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module PennState::SearchService
+module PsuIdentity::SearchService
   class Person
     attr_reader :data
 

@@ -26,23 +26,23 @@ Or install it yourself as:
 
 Add this to the top of your code:
 
-    require 'penn_state/search_service'
+    require 'psu_identity'
     
 To query the search service by name:
 
     # Takes a hash as parameter with 'text:' as the key
     
-    PennState::SearchService::Client.new.search(text: 'Jimmy Tester')
+    PsuIdentity::SearchService::Client.new.search(text: 'Jimmy Tester')
     
-***This will return an array of PennState::SearchService::Person objects matching the query***
+***This will return an array of PsuIdentity::SearchService::Person objects matching the query***
 
 To query the search service by userid:
 
     # Takes a string as a parameter
     
-    PennState::SearchService::Client.new.userid('abc123')
+    PsuIdentity::SearchService::Client.new.userid('abc123')
     
-***This will return a single PennState::SearchService::Person object matching the query***
+***This will return a single PsuIdentity::SearchService::Person object matching the query***
 
 ## Development
 
