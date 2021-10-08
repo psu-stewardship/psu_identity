@@ -55,7 +55,7 @@ module PsuIdentity::SearchService
     end
 
     def active?
-      data['active'] == 'true'
+      data['active'].is_a?(TrueClass) || data['active'] == 'true'
     end
 
     def conf_hold?
