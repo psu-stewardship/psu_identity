@@ -4,6 +4,7 @@
 module PsuIdentity::SearchService
   class Client
     class Error < StandardError; end
+    class NotFound < StandardError; end
 
     attr_reader :base_url
 
@@ -37,8 +38,7 @@ module PsuIdentity::SearchService
 
       # @return [PsuIdentity::SearchService::Person, nil]
       def process_userid_response(response)
-        return if response.status == 404
-
+        raise NotFound if response.status == 404
         raise Error.new(response.body) unless response.success?
 
         Person.new(JSON.parse(response.body))
