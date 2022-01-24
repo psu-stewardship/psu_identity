@@ -73,10 +73,8 @@ RSpec.describe PsuIdentity::SearchService::Client do
     end
 
     context 'when the person does NOT exist at Penn State' do
-      let(:results) { client.userid('cam156') }
-
-      it 'returns nil' do
-        expect(results).to be_nil
+      it 'raises an error' do
+        expect { client.userid('cam156') }.to raise_error(PennState::SearchService::NotFound)
       end
     end
 
