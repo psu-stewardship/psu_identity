@@ -39,7 +39,7 @@ module PsuIdentity::SearchService
       # @return [PsuIdentity::SearchService::Person, nil]
       def process_userid_response(response)
         raise NotFound if response.status == 404
-        
+
         raise Error.new(response.body) unless response.success?
 
         Person.new(JSON.parse(response.body))
