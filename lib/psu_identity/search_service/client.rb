@@ -4,6 +4,7 @@
 module PsuIdentity::SearchService
   class Client
     class Error < StandardError; end
+
     class NotFound < StandardError; end
 
     attr_reader :base_url
