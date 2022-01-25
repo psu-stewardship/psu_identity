@@ -2,11 +2,11 @@
 
 # @abstract Client for querying Penn State's identity API: https://identity.apps.psu.edu/search-service/resources
 module PsuIdentity::SearchService
+  class Error < StandardError; end
+
+  class NotFound < StandardError; end
+
   class Client
-    class Error < StandardError; end
-
-    class NotFound < StandardError; end
-
     attr_reader :base_url
 
     # @param [String] base_url

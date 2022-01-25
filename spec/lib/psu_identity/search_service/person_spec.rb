@@ -88,26 +88,14 @@ RSpec.describe PsuIdentity::SearchService::Person do
   end
 
   describe 'active?' do
-    context 'when set to "true"' do
+    context 'when the person is active' do
       subject { described_class.new('active' => 'true') }
 
       it { is_expected.to be_active }
     end
 
-    context 'when set to a boolean true' do
-      subject { described_class.new('active' => true) }
-
-      it { is_expected.to be_active }
-    end
-
-    context 'when set to "false"' do
+    context 'when the person is NOT active' do
       subject { described_class.new('active' => 'false') }
-
-      it { is_expected.not_to be_active }
-    end
-
-    context 'when set to a boolean false' do
-      subject { described_class.new('active' => false) }
 
       it { is_expected.not_to be_active }
     end
