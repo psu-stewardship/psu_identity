@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'oauth2'
+require 'ostruct'
 
 # @abstract Client for querying Penn State's directory-service API: https://directory-service.k8s.psu.edu/directory-service-web/resources
 module PsuIdentity::DirectoryService
@@ -29,7 +30,8 @@ module PsuIdentity::DirectoryService
 
         raise Error.new(response.body) unless response.success?
 
-        Person.new(JSON.parse(response.body))
+        snake_cased_response = JSON.parse(response.body).transform_keys(&:underscore)
+        OpenStruct.new(snake_cased_response)
       rescue JSON::ParserError
       end
 

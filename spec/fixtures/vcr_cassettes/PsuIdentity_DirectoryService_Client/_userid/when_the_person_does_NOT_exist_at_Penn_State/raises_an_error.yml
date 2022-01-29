@@ -1,0 +1,99 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://acceptance-oauth2-server.qa.k8s.psu.edu/oauth/api/token
+    body:
+      encoding: UTF-8
+      string: client_id=<CLIENT_ID>&client_secret=<CLIENT_SECRET>&grant_type=client_credentials
+    headers:
+      User-Agent:
+      - Faraday v1.9.3
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sat, 29 Jan 2022 00:07:07 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Content-Length:
+      - '102'
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - INGRESSCOOKIE=362413e90be3e04f237fe2682d2cf754|b4385af4d8995505be5168732a9635a9;
+        Path=/oauth; Secure; HttpOnly
+      - JSESSIONID=9ioc8Okpz7741JfKfD6654dCZD3uCDMoBozKg2yV.oauth2-server-74db4586cd-rpgk2;
+        path=/oauth
+      Cache-Control:
+      - no-store
+      X-Request-Id:
+      - de4c521c9c5e58f3eec9052634134307
+      Pragma:
+      - no-cache
+      Uniqueid:
+      - de4c521c9c5e58f3eec9052634134307
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"asdf","scope":"","token_type":"Bearer","expires_in":3599}'
+  recorded_at: Sat, 29 Jan 2022 00:07:07 GMT
+- request:
+    method: get
+    uri: https://acceptance-directory-service.qa.k8s.psu.edu/directory-service-web/resources/people/cam156
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Authorization:
+      User-Agent:
+      - Faraday v1.9.3
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Sat, 29 Jan 2022 00:07:07 GMT
+      Content-Type:
+      - application/vnd-psu.edu-v1+json
+      Content-Length:
+      - '106'
+      Connection:
+      - keep-alive
+      X-Content-Security-Policy:
+      - frame-ancestors 'none'
+      Set-Cookie:
+      - JSESSIONID=vJ4Ls4juoYrUntmd98JtTYgUDFweSYktjXCaaKuy.directory-service-no-oath-5b87b9779f-zzpg4;
+        path=/directory-service-web
+      X-Request-Id:
+      - f412c4cd6bddfffa0fdf177176c93f3d
+      X-Frame-Options:
+      - DENY
+      Content-Security-Policy:
+      - frame-ancestors 'none'
+      Etag:
+      - 4eCeJuZp5QAe6uEcYQhzZUB/4j8tc98eSKU/zDBxmQA=
+      Uniqueid:
+      - f412c4cd6bddfffa0fdf177176c93f3d
+      Strict-Transport-Security:
+      - max-age=15724800; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"status":{"code":404,"message":"NOT_FOUND"},"errorMessage":["User
+        with id cam156 not found"],"link":null}'
+  recorded_at: Sat, 29 Jan 2022 00:07:07 GMT
+recorded_with: VCR 6.0.0
