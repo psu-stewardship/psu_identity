@@ -55,15 +55,15 @@ module PsuIdentity::DirectoryService
       end
 
       def client_id
-        @client_id ||= ENV.fetch('OAUTH_CLIENT_ID')
+        @client_id ||= ENV.fetch('PSU_ID_OAUTH_CLIENT_ID')
       end
 
       def client_secret
-        @client_secret ||= ENV.fetch('OAUTH_CLIENT_SECRET')
+        @client_secret ||= ENV.fetch('PSU_ID_OAUTH_CLIENT_SECRET')
       end
 
       def oauth_endpoint
-        @oauth_endpoint ||= ENV.fetch('OAUTH_ENDPOINT', 'https://acceptance-oauth2-server.qa.k8s.psu.edu')
+        @oauth_endpoint ||= ENV.fetch('PSU_ID_OAUTH_ENDPOINT', 'https://acceptance-oauth2-server.qa.k8s.psu.edu')
       end
 
       def endpoint
