@@ -13,9 +13,6 @@ AllCops:
   DisplayCopNames: true
   NewCops: enable
 
-Metrics/ClassLength:
-  Exclude:
-    - 'lib/psu_identity/directory_service/person.rb'
 
 Metrics/BlockLength:
   Exclude:
