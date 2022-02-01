@@ -30,7 +30,7 @@ module PsuIdentity::DirectoryService
 
         raise Error.new(response.body) unless response.success?
 
-        snake_cased_response = JSON.parse(response.body).transform_keys(&:underscore)
+        snake_cased_response = JSON.parse(response.body).transform_keys { |str| StringHelpers.underscore(str) }
         OpenStruct.new(snake_cased_response)
       rescue JSON::ParserError
       end
