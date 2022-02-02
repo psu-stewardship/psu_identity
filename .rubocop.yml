@@ -13,6 +13,7 @@ AllCops:
   DisplayCopNames: true
   NewCops: enable
 
+
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'

@@ -1,0 +1,103 @@
+---
+http_interactions:
+  - request:
+      method: post
+      uri: https://acceptance-oauth2-server.qa.k8s.psu.edu/oauth/api/token
+      body:
+        encoding: UTF-8
+        string: client_id=<CLIENT_ID>&client_secret=<CLIENT_SECRET>&grant_type=client_credentials
+      headers:
+        User-Agent:
+          - Faraday v1.9.3
+        Content-Type:
+          - application/x-www-form-urlencoded
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - "*/*"
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Sat, 29 Jan 2022 00:07:07 GMT
+        Content-Type:
+          - application/json;charset=UTF-8
+        Content-Length:
+          - "102"
+        Connection:
+          - keep-alive
+        Set-Cookie:
+          - INGRESSCOOKIE=13bb23a62048fcc41b312f76dee4c47c|b4385af4d8995505be5168732a9635a9;
+            Path=/oauth; Secure; HttpOnly
+          - JSESSIONID=Ag2T5Z8c9AmdILoooI_x0kh__Yr2HJE1T0U92w9B.oauth2-server-74db4586cd-njk85;
+            path=/oauth
+        Cache-Control:
+          - no-store
+        X-Request-Id:
+          - 34e09f44addc7a66141a0731a5516406
+        Pragma:
+          - no-cache
+        Uniqueid:
+          - 34e09f44addc7a66141a0731a5516406
+        Strict-Transport-Security:
+          - max-age=15724800; includeSubDomains
+      body:
+        encoding: UTF-8
+        string: '{"access_token":"asdf","scope":"","token_type":"Bearer","expires_in":3599}'
+    recorded_at: Sat, 29 Jan 2022 00:07:07 GMT
+  - request:
+      method: get
+      uri: https://acceptance-directory-service.qa.k8s.psu.edu/directory-service-web/resources/people/djb44
+      body:
+        encoding: US-ASCII
+        string: ""
+      headers:
+        User-Agent:
+          - Faraday v1.9.3
+        Accept-Encoding:
+          - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+        Accept:
+          - "*/*"
+    response:
+      status:
+        code: 200
+        message: OK
+      headers:
+        Date:
+          - Sat, 29 Jan 2022 00:07:07 GMT
+        Content-Type:
+          - application/vnd-psu.edu-v1+json
+        Content-Length:
+          - "3143"
+        Connection:
+          - keep-alive
+        Content-Security-Policy:
+          - frame-ancestors 'none'
+        Etag:
+          - wCf5CBQIF/YWdCfw3POdMCtmunaVxDo9LeviNbsBTNc=
+        Set-Cookie:
+          - JSESSIONID=dvrmiJ-URS0rbGfZKbSKRSLsrOAqkAuexxLRbaKA.directory-service-oath-5b898654f9-8dl6n;
+            path=/directory-service-web
+        Uniqueid:
+          - bd8cb48f9d1aae5be0e74becc20086c9
+        X-Content-Security-Policy:
+          - frame-ancestors 'none'
+        X-Frame-Options:
+          - DENY
+        X-Request-Id:
+          - bd8cb48f9d1aae5be0e74becc20086c9
+        Strict-Transport-Security:
+          - max-age=15724800; includeSubDomains
+      body:
+        encoding: UTF-8
+        string:
+          '{"admin-group-list":["admins"],"owner-group-list":["owners.owner"],"member-group-list":["members", "users"],"ps-dir-idn":"999999","ps-uid-number":"99999","uid-number":"99999","psuid":"99999999","user-id":"djb44","nickname":null,"alternate-email-list":["djb44@psu.edu","dann@psu.edu"],"mobile-phone-number":null,"office-address":null,"office-location":null,"office-phone":null,"birth-date":null,"home-phone":null,"homeDirectory":"/pass/users/d/j/djb44","home-address":null,"ps-ferpa-exam":true,"ps-optional-2fa":false,"permanent-address":null,"permanent-phone-number":null,"login-shell":"/bin/bash","ps-department":"Library
+          Strategic Technologies","ps-department-code":"41743","given-name":"Dann","date-of-birth":"2020-10-21","psApptCode":null,"ps-campus-code":"UP","ps-campus":"University
+          Park","title":"Programmer/Analyst 4","edu-person-principal-name":"djb44@psu.edu","edu-person-primay-affiliation":"STAFF","postal-address":"9303 Lyon Drive, Lyon Estates, Hill Valley CA 95420","ps-show-postal-address":true,"telephone-number":"+1
+          814 867 5309","ps-show-phone":true,"ps-admin-area":null,"ps-business-area":"University
+          Libraries","ps-business-area-code":"4170","display-name":"Dann Bohn","surname":"Bohn","preferred-name":null,"common-name":"Dann
+          Bohn","ps-mail-host":"PSUOneforestTest.onMicrosoft.com","ps-mailbox":"djb44@PSUOneforestTest.onMicrosoft.com","email":"djb44@psu.edu","orc-id":"https://orcid.org/0000-0003-2691-3206","edu-person-entitlement-list":["entitlements"],"edu-person-nickname-list":[],"edu-person-affiliation-list":["member","staff"],"psCodeHotl":null,"psCurriculum":null,"psEmployeeClass":"STFF","psEstatusCode":"ACT","psMacLabGID":"5000","psHours":null,"psMacLabHomeDir":"/Users/guest","psScholarStatus":null,"psSemesterCode":null,"psSemesterStanding":null,"psConfHold":false,"visaType":null,"genderPronouns":null,"psu-id-number":"99999"}'
+    recorded_at: Sat, 29 Jan 2022 00:07:07 GMT
+recorded_with: VCR 6.0.0
