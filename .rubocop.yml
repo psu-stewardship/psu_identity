@@ -9,6 +9,8 @@ inherit_from:
   - .niftany/style.yml
   - .rubocop_todo.yml
 
+require: [rubocop-rspec, rubocop-performance]
+
 AllCops:
   DisplayCopNames: true
   NewCops: enable
@@ -18,3 +20,8 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
     - 'psu_identity.gemspec'
+
+Style/OpenStructUse:
+  Exclude:
+    - 'lib/psu_identity/search_service/atomic_link.rb'
+    - 'spec/lib/psu_identity/search_service/atomic_link_spec.rb'
