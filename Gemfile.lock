@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    psu_identity (0.4.0)
+    psu_identity (0.5.0)
       faraday (~> 1.0)
       json
       oauth2
