@@ -39,19 +39,19 @@ module PsuIdentity::SearchService
     end
 
     def preferred_given_name
-      data.fetch('preferredGivenName', given_name)
+      presence(data['preferredGivenName']) || given_name
     end
 
     def preferred_middle_name
-      data.fetch('preferredMiddleName', middle_name)
+      presence(data['preferredMiddleName']) || middle_name
     end
 
     def preferred_family_name
-      data.fetch('preferredFamilyName', family_name)
+      presence(data['preferredFamilyName']) || family_name
     end
 
     def preferred_honorific_suffix
-      data.fetch('preferredHonorificSuffix', honorific_suffix)
+      presence(data['preferredHonorificSuffix']) || honorific_suffix
     end
 
     def active?
@@ -81,5 +81,15 @@ module PsuIdentity::SearchService
     def link
       AtomicLink.new(data['link'])
     end
+
+    private
+
+      def presence(string)
+        return nil if string == nil
+
+        return nil if string == ''
+
+        return string
+      end
   end
 end

@@ -46,27 +46,147 @@ RSpec.describe PsuIdentity::SearchService::Person do
   end
 
   describe '#preferred_given_name' do
-    subject { described_class.new('preferredGivenName' => 'abc123') }
+    context 'when preferredGivenName is present' do
+      subject { described_class.new('preferredGivenName' => 'abc123', 'givenName' => 'def321') }
 
-    its(:preferred_given_name) { is_expected.to eq('abc123') }
+      its(:preferred_given_name) { is_expected.to eq('abc123') }
+    end
+
+    context 'when preferredGivenName is not present' do
+      context 'when givenName is not present' do
+        subject { described_class.new() }
+
+        its(:preferred_given_name) { is_expected.to eq(nil) }
+      end
+
+      context 'when givenName is present' do
+        subject { described_class.new('givenName' => 'abc123') }
+
+        its(:preferred_given_name) { is_expected.to eq('abc123') }
+      end
+    end
+
+    context 'when preferredGivenName is an empty string' do
+      context 'when givenName is not present' do
+        subject { described_class.new('preferredGivenName' => '') }
+
+        its(:preferred_given_name) { is_expected.to eq(nil) }
+      end
+
+      context 'when givenName is present' do
+        subject { described_class.new('preferredGivenName' => '', 'givenName' => 'abc123') }
+
+        its(:preferred_given_name) { is_expected.to eq('abc123') }
+      end
+    end
   end
 
   describe '#preferred_middle_name' do
-    subject { described_class.new('preferredMiddleName' => 'abc123') }
+    context 'when preferredMiddleName is present' do
+      subject { described_class.new('preferredMiddleName' => 'abc123', 'middleName' => 'def321') }
 
-    its(:preferred_middle_name) { is_expected.to eq('abc123') }
+      its(:preferred_middle_name) { is_expected.to eq('abc123') }
+    end
+
+    context 'when preferredMiddleName is not present' do
+      context 'when middleName is not present' do
+        subject { described_class.new() }
+
+        its(:preferred_middle_name) { is_expected.to eq(nil) }
+      end
+
+      context 'when middleName is present' do
+        subject { described_class.new('middleName' => 'abc123') }
+
+        its(:preferred_middle_name) { is_expected.to eq('abc123') }
+      end
+    end
+
+    context 'when preferredMiddleName is an empty string' do
+      context 'when middleName is not present' do
+        subject { described_class.new('preferredMiddleName' => '') }
+
+        its(:preferred_middle_name) { is_expected.to eq(nil) }
+      end
+
+      context 'when middleName is present' do
+        subject { described_class.new('preferredMiddleName' => '', 'middleName' => 'abc123') }
+
+        its(:preferred_middle_name) { is_expected.to eq('abc123') }
+      end
+    end
   end
 
   describe '#preferred_family_name' do
-    subject { described_class.new('preferredFamilyName' => 'abc123') }
+    context 'when preferredFamilyName is present' do
+      subject { described_class.new('preferredFamilyName' => 'abc123', 'familyName' => 'def321') }
 
-    its(:preferred_family_name) { is_expected.to eq('abc123') }
+      its(:preferred_family_name) { is_expected.to eq('abc123') }
+    end
+
+    context 'when preferredFamilyName is not present' do
+      context 'when familyName is not present' do
+        subject { described_class.new() }
+
+        its(:preferred_family_name) { is_expected.to eq(nil) }
+      end
+
+      context 'when familyName is present' do
+        subject { described_class.new('familyName' => 'abc123') }
+
+        its(:preferred_family_name) { is_expected.to eq('abc123') }
+      end
+    end
+
+    context 'when preferredFamilyName is an empty string' do
+      context 'when familyName is not present' do
+        subject { described_class.new('preferredFamilyName' => '') }
+
+        its(:preferred_family_name) { is_expected.to eq(nil) }
+      end
+
+      context 'when familyName is present' do
+        subject { described_class.new('preferredFamilyName' => '', 'familyName' => 'abc123') }
+
+        its(:preferred_family_name) { is_expected.to eq('abc123') }
+      end
+    end
   end
 
   describe '#preferred_honorific_suffix' do
-    subject { described_class.new('preferredHonorificSuffix' => 'abc123') }
+    context 'when preferredHonorificSuffix is present' do
+      subject { described_class.new('preferredHonorificSuffix' => 'abc123', 'honorificSuffix' => 'def321') }
 
-    its(:preferred_honorific_suffix) { is_expected.to eq('abc123') }
+      its(:preferred_honorific_suffix) { is_expected.to eq('abc123') }
+    end
+
+    context 'when preferredHonorificSuffix is not present' do
+      context 'when honorificSuffix is not present' do
+        subject { described_class.new() }
+
+        its(:preferred_honorific_suffix) { is_expected.to eq(nil) }
+      end
+
+      context 'when honorificSuffix is present' do
+        subject { described_class.new('honorificSuffix' => 'abc123') }
+
+        its(:preferred_honorific_suffix) { is_expected.to eq('abc123') }
+      end
+    end
+
+    context 'when preferredHonorificSuffix is an empty string' do
+      context 'when honorificSuffix is not present' do
+        subject { described_class.new('preferredHonorificSuffix' => '') }
+
+        its(:preferred_honorific_suffix) { is_expected.to eq(nil) }
+      end
+
+      context 'when honorificSuffix is present' do
+        subject { described_class.new('preferredHonorificSuffix' => '', 'honorificSuffix' => 'abc123') }
+
+        its(:preferred_honorific_suffix) { is_expected.to eq('abc123') }
+      end
+    end
   end
 
   describe '#university_email' do
