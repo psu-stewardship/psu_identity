@@ -25,3 +25,7 @@ Style/OpenStructUse:
   Exclude:
     - 'lib/psu_identity/search_service/atomic_link.rb'
     - 'spec/lib/psu_identity/search_service/atomic_link_spec.rb'
+
+Rspec/NestedGroups:
+  Exclude:
+    - 'spec/lib/psu_identity/search_service/person_spec.rb'

@@ -89,7 +89,7 @@ module PsuIdentity::SearchService
 
         return nil if string == ''
 
-        return string
+        string
       end
   end
 end
