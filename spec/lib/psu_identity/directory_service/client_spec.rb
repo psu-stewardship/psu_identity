@@ -23,7 +23,7 @@ RSpec.describe PsuIdentity::DirectoryService::Client do
       end
     end
 
-    context "when the userid argument is nil, '', or '  '" do
+    context 'when the userid argument is nil or an empty string' do
       it 'raises an error' do
         expect { client.userid(nil) }.to raise_error(PsuIdentity::DirectoryService::NotFound)
         expect { client.userid('') }.to raise_error(PsuIdentity::DirectoryService::NotFound)
