@@ -20,6 +20,8 @@ module PsuIdentity::DirectoryService
     # @param [Hash] args of options to pass to the endpoint
     # @option args [String] :userid of the person
     def userid(userid)
+      raise NotFound if /\A[[:space:]]*\z/.match?(userid.to_s)
+
       process_userid_response connection.get("#{base_url}/people/#{userid}")
     end
 
