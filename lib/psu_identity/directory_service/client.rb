@@ -51,10 +51,15 @@ module PsuIdentity::DirectoryService
       def token
         oauth_client = OAuth2::Client.new(client_id,
                                           client_secret, site: oauth_endpoint,
+                                                         auth_scheme:,
                                                          authorize_url: '/oauth/api/authz',
                                                          token_url: '/oauth/api/token')
         oauth_token = oauth_client.client_credentials.get_token
         oauth_token.token
+      end
+
+      def auth_scheme
+        @auth_scheme ||= ENV.fetch('PSU_ID_AUTH_SCHEME', 'request_body').to_sym
       end
 
       def client_id
